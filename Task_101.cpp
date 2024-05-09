@@ -25,7 +25,20 @@ int main(int argc, char *argv[]){
                 game=false;
                 break;
             }
+        }   SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+         SDL_RenderClear(renderer);
+        for (int y = -100; y <= 100; y++) {
+        for (int x = -100; x <= 100; x++) {
+            if (x * x + y * y <= 100 * 100) {
+                SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+                SDL_RenderDrawPoint(renderer, 250 + x, 250 + y);
+            }
         }
+    }
+
+
+         SDL_RenderPresent(renderer);
+
         
     }
     SDL_DestroyRenderer(renderer);
